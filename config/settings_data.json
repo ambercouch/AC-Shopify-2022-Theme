@@ -31,7 +31,7 @@
     "low_cost_minimum_qty": "2",
     "low_price_product_2": "495",
     "low_cost_minimum_qty_2": "3",
-    "cart_promo_1_collection": "recently-added",
+    "cart_promo_1_collection": "all-products",
     "cart_promo_1_collection_title": "",
     "cart_promo_1_collection_title_position": "centre-centre",
     "cart_promo_1_hide_collection_title": false,
@@ -123,7 +123,7 @@
           "collection-list-0": {
             "type": "collection",
             "settings": {
-              "collection": "recently-added",
+              "collection": "all-products",
               "collection_title": "",
               "collection_title_position": "centre-centre",
               "hide_collection_title": false,
