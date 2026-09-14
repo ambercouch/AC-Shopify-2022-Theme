@@ -44,11 +44,7 @@
 
         {% if section.settings.cb_logo_image != blank %}
           <div class="c-content-block__logo">
-            {% include 'responsive-image' with
-              image: section.settings.cb_logo_image,
-              max_width: 700,
-              max_height: 700
-            %}
+            {% include 'responsive-image' with image, image: section.settings.cb_logo_image, max_width: 700, max_height: 700 %}
           </div>
         {% endif %}
 
@@ -65,11 +61,7 @@
 
     {% if section.settings.cb_image != blank %}
       <div class="c-content-block__image is-pos-{{ cb_image_pos_class }}">
-        {% include 'responsive-image' with
-          image: section.settings.cb_image,
-          max_width: 700,
-          max_height: 700
-        %}
+        {% include 'responsive-image' with image, image: section.settings.cb_image, max_width: 700, max_height: 700 %}
       </div>
     {% endif %}
 
@@ -93,11 +85,7 @@
                 <div class="l-icon-list__icon-thumb">
                   <div class="c-icon-thumb">
                     <div class="c-icon-thumb__icon">
-                      {% include 'responsive-image' with
-                        image: icon.settings.cb_icon_image,
-                        max_width: 500,
-                        max_height: 500
-                      %}
+                      {% include 'responsive-image' with image, image: icon.settings.cb_icon_image, max_width: 500, max_height: 500 %}
                     </div>
                     {% unless icon.settings.cb_icon_hide_title %}
                       <div class="c-icon-thumb__title">
@@ -393,3 +381,37 @@
   ]
   }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                  image: section.settings.cb_logo_image,
+                  max_width: 700,
+                  max_height: 700
+                %}
+  to: "{% include 'responsive-image' with image, image: section.settings.cb_logo_image,
+    max_width: 700, max_height: 700 %}"
+  position: 1977..2092
+- from: |-
+    {% include 'responsive-image' with
+              image: section.settings.cb_image,
+              max_width: 700,
+              max_height: 700
+            %}
+  to: "{% include 'responsive-image' with image, image: section.settings.cb_image,
+    max_width: 700, max_height: 700 %}"
+  position: 2757..2867
+- from: |-
+    {% include 'responsive-image' with
+                            image: icon.settings.cb_icon_image,
+                            max_width: 500,
+                            max_height: 500
+                          %}
+  to: "{% include 'responsive-image' with image, image: icon.settings.cb_icon_image,
+    max_width: 500, max_height: 500 %}"
+  position: 4020..4132
+{% endcomment %}

@@ -50,11 +50,7 @@
 
               {% if pageHeroImage %}
                 <div class="l-page__hero-image">
-                  {% include 'responsive-image' with
-                    image: pageHeroImage,
-                    max_width: 800,
-                    max_height: 800
-                  %}
+                  {% include 'responsive-image' with image, image: pageHeroImage, max_width: 800, max_height: 800 %}
                 </div>
               {% else %}
                 <!-- no page hero image {{ pageHeroImage }} ! -->
@@ -122,3 +118,19 @@
     ]
   }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                        image: pageHeroImage,
+                        max_width: 800,
+                        max_height: 800
+                      %}
+  to: "{% include 'responsive-image' with image, image: pageHeroImage, max_width:
+    800, max_height: 800 %}"
+  position: 1974..2072
+{% endcomment %}

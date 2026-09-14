@@ -145,7 +145,7 @@
       {% else %}
       <!-- Restricted Access -->
       <ul class="collection__list customerAccess-{{ customerAccess }} ">
-        {% for product in collection.products | limit: 3 %}
+        {% for product in collection.products limit: 3 %}
           {% include 'bold-product' with product, hide_action: 'skip' %}
           <li class="collection__item--layout3">
             {% include 'product-thumb-restricted' %}
@@ -195,3 +195,13 @@
 </div>
 </div>
 {% endpaginate %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% for product in collection.products | limit: 3 %}"
+  to: "{% for product in collection.products limit: 3 %}"
+  position: 5221..5270
+{% endcomment %}

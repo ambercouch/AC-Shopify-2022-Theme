@@ -5,11 +5,7 @@
     {%  if logoImage != blank %}
       {% if logoImage != blank %}
         <h3 class="l-icon-list__logo">
-          {% include 'responsive-image' with
-            image: logoImage,
-            max_width: 400,
-            max_height: 700
-          %}
+          {% include 'responsive-image' with image, image: logoImage, max_width: 400, max_height: 700 %}
         </h3>
       {% endif %}
     {% endif %}
@@ -51,3 +47,19 @@
     </ul>
   </div>
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                image: logoImage,
+                max_width: 400,
+                max_height: 700
+              %}
+  to: "{% include 'responsive-image' with image, image: logoImage, max_width: 400,
+    max_height: 700 %}"
+  position: 253..347
+{% endcomment %}

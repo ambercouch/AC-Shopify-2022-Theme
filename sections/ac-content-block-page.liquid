@@ -52,11 +52,7 @@
 
         {% if section.settings.cb_logo_image != blank %}
           <div class="c-content-block__logo">
-            {% include 'responsive-image' with
-              image: section.settings.cb_logo_image,
-              max_width: 700,
-              max_height: 700
-            %}
+            {% include 'responsive-image' with image, image: section.settings.cb_logo_image, max_width: 700, max_height: 700 %}
           </div>
         {% endif %}
 
@@ -73,11 +69,7 @@
 
     {% if section.settings.cb_image != blank %}
       <div class="c-content-block__image is-pos-{{ cb_image_pos_class }}">
-        {% include 'responsive-image' with
-          image: section.settings.cb_image,
-          max_width: 700,
-          max_height: 700
-        %}
+        {% include 'responsive-image' with image, image: section.settings.cb_image, max_width: 700, max_height: 700 %}
       </div>
     {% endif %}
 
@@ -494,3 +486,28 @@
   }
 
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                  image: section.settings.cb_logo_image,
+                  max_width: 700,
+                  max_height: 700
+                %}
+  to: "{% include 'responsive-image' with image, image: section.settings.cb_logo_image,
+    max_width: 700, max_height: 700 %}"
+  position: 2558..2673
+- from: |-
+    {% include 'responsive-image' with
+              image: section.settings.cb_image,
+              max_width: 700,
+              max_height: 700
+            %}
+  to: "{% include 'responsive-image' with image, image: section.settings.cb_image,
+    max_width: 700, max_height: 700 %}"
+  position: 3291..3401
+{% endcomment %}

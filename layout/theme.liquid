@@ -49,7 +49,7 @@
             }
         }
         defer(function () {
-            var content_for_header = "{{ content_for_header | replace: '/', '\/' | replace: '"', '\"' | replace: 'quantity_breaks.php?shop=tempestdesigns.myshopify.com' : '' | strip_newlines  }}";
+            var content_for_header = "{{ content_for_header | replace: '/', '\/' | replace: '"', '\"' | replace: 'quantity_breaks.php?shop=tempestdesigns.myshopify.com', '' | strip_newlines }}";
             // Output content to the head, and add newlines where required
             $('head').append(content_for_header
                 .replace(/}        /g, "}        \n")
@@ -123,3 +123,16 @@
 
 
 </html>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{{ content_for_header | replace: ''/'', ''\/'' | replace: ''"'', ''\"'' |
+    replace: ''quantity_breaks.php?shop=tempestdesigns.myshopify.com'' : '''' | strip_newlines  }}'
+  to: '{{ content_for_header | replace: ''/'', ''\/'' | replace: ''"'', ''\"'' | replace:
+    ''quantity_breaks.php?shop=tempestdesigns.myshopify.com'', '''' | strip_newlines
+    }}'
+  position: 1772..1926
+{% endcomment %}

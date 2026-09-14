@@ -97,7 +97,7 @@
             <span class="c-btn__label--product-video">View Product Video</span>
             <!--
             <span class="c-btn__icon">
-              {% include 'svg-icon' with {icon : 'icon-arrow-up'} %}
+              {% include 'svg-icon' with icon, icon: 'icon-arrow-up' %}
             </span>
             -->
           </a>
@@ -157,3 +157,13 @@
   </form>
 
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'svg-icon' with {icon : 'icon-arrow-up'} %}"
+  to: "{% include 'svg-icon' with icon, icon: 'icon-arrow-up' %}"
+  position: 4361..4418
+{% endcomment %}
