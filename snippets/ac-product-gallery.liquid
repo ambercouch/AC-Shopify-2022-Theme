@@ -9,16 +9,7 @@
     {%- endunless -%}
   {% endcapture %}
   <div class="c-product-gallery__focus-image">
-  {% include 'responsive-image' with
-    image: image,
-    max_width: 700,
-    max_height: 700,
-    image_attributes: "data-product-featured-image",
-    wrapper_class: "c-product-gallery__wrapper u-hidden",
-    image_class : 'c-product-gallery__img--focus'
-    wrapper_attributes: "data-product-image-wrapper",
-    crop: false
-  %}
+  {% include 'responsive-image' with image, image: image, max_width: 700, max_height: 700, image_attributes: "data-product-featured-image", wrapper_class: "c-product-gallery__wrapper u-hidden", image_class: 'c-product-gallery__img--focus', wrapper_attributes: "data-product-image-wrapper", crop: false %}
   </div>
 
 {% endfor %}
@@ -37,3 +28,26 @@
   {% endif %}
 
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+        image: image,
+        max_width: 700,
+        max_height: 700,
+        image_attributes: "data-product-featured-image",
+        wrapper_class: "c-product-gallery__wrapper u-hidden",
+        image_class : 'c-product-gallery__img--focus'
+        wrapper_attributes: "data-product-image-wrapper",
+        crop: false
+      %}
+  to: '{% include ''responsive-image'' with image, image: image, max_width: 700, max_height:
+    700, image_attributes: "data-product-featured-image", wrapper_class: "c-product-gallery__wrapper
+    u-hidden", image_class: ''c-product-gallery__img--focus'', wrapper_attributes:
+    "data-product-image-wrapper", crop: false %}'
+  position: 299..601
+{% endcomment %}

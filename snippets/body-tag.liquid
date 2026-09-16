@@ -1,7 +1,7 @@
 {% include 'logic-access' %}
 {% include 'logic-customer' %}
 
-{%- capture classTemplate = -%}
+{%- capture classTemplate -%}
 template--{{ template.name | handle }}
 {%- endcapture -%}
 
@@ -44,3 +44,13 @@ access--{{ access }}
       data-template="{{ template | handleize }}"
       data-handle="{{ dataHandle }}"
     {{ customerData  }}>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- capture classTemplate = -%}"
+  to: "{%- capture classTemplate -%}"
+  position: 61..90
+{% endcomment %}

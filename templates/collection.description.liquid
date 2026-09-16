@@ -65,7 +65,7 @@
     </ul>
       {% else %}
       <ul class="collection__list customerAccess-{{ customerAccess }} ">
-        {% for product in collection.products | limit: 4 %}
+        {% for product in collection.products limit: 4 %}
           {% include 'bold-product' with product, hide_action: 'skip' %}
           <li class="collection__item--layout4">
             {% include 'product-thumb' %}
@@ -114,4 +114,13 @@
     {% endunless %}
 </div>
 </div>
-{% endpaginate %}
+{% endpaginate %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% for product in collection.products | limit: 4 %}"
+  to: "{% for product in collection.products limit: 4 %}"
+  position: 2255..2304
+{%- endcomment -%}

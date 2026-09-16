@@ -31,7 +31,7 @@
       {%  include "breadcrumbs" %}
     </div>
 
-{% unless aSlides == empty or (aSlides.size == 1 and aSlides[0] == '') %}
+{% unless aSlides == empty or aSlides.size == 1 and aSlides[0] == '' %}
     <div class="hero--collection">
       <div class="hero__carousel">
         {% if collection.image.src %}
@@ -59,11 +59,7 @@
     {% if  aSlides == empty %}
     {% if collection.image.src %}
       <div class="l-page__feature-image--collection">
-        {% include 'responsive-image' with
-          image: collection.image,
-          max_width: 1440,
-          max_height: 600
-        %}
+        {% include 'responsive-image' with image, image: collection.image, max_width: 1440, max_height: 600 %}
       </div>
     {% else %}
       <!-- no collection image -->
@@ -144,7 +140,7 @@
 
             <!-- Restricted Access -->
             <ul class="collection__list customerAccess-{{ customerAccess }} ">
-              {% for product in collection.products | limit: 3 %}
+              {% for product in collection.products limit: 3 %}
                 {% include 'bold-product' with product, hide_action: 'skip' %}
                 <li class="collection__item--layout3">
                   {% include 'product-thumb-restricted' %}
@@ -242,3 +238,25 @@
   </div>
 {% endpaginate %}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% unless aSlides == empty or (aSlides.size == 1 and aSlides[0] == '') %}"
+  to: "{% unless aSlides == empty or aSlides.size == 1 and aSlides[0] == '' %}"
+  position: 1275..1346
+- from: |-
+    {% include 'responsive-image' with
+              image: collection.image,
+              max_width: 1440,
+              max_height: 600
+            %}
+  to: "{% include 'responsive-image' with image, image: collection.image, max_width:
+    1440, max_height: 600 %}"
+  position: 2311..2413
+- from: "{% for product in collection.products | limit: 3 %}"
+  to: "{% for product in collection.products limit: 3 %}"
+  position: 5418..5467
+{% endcomment %}

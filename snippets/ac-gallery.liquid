@@ -36,11 +36,7 @@
         <div class="c-gallery__item">
           <div class="c-gallery__image lazyload" >
             <a class="c-gallery__link-image" href="#modal-{{ article.id }}">
-              {% include 'responsive-image' with
-                image: article.image,
-                max_width: 700,
-                max_height: 700
-              %}
+              {% include 'responsive-image' with image, image: article.image, max_width: 700, max_height: 700 %}
             </a>
           </div>
           {% if article.metafields.global.slide_title %}
@@ -58,11 +54,7 @@
 
         <div class="c-gallery__image lazyload" >
 
-            {% include 'responsive-image' with
-              image: article.image,
-              max_width: 1200,
-              max_height: 1200
-            %}
+            {% include 'responsive-image' with image, image: article.image, max_width: 1200, max_height: 1200 %}
 
         </div>
 
@@ -73,3 +65,28 @@
   </div>
 </div>
 {% endif %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                    image: article.image,
+                    max_width: 700,
+                    max_height: 700
+                  %}
+  to: "{% include 'responsive-image' with image, image: article.image, max_width:
+    700, max_height: 700 %}"
+  position: 1339..1437
+- from: |-
+    {% include 'responsive-image' with
+                  image: article.image,
+                  max_width: 1200,
+                  max_height: 1200
+                %}
+  to: "{% include 'responsive-image' with image, image: article.image, max_width:
+    1200, max_height: 1200 %}"
+  position: 2016..2116
+{% endcomment %}

@@ -24,7 +24,7 @@
       }
       {% if false %}
       defer(function () {
-          var content_for_header = "{{ content_for_header | replace: '/', '\/' | replace: '"', '\"' | replace: 'quantity_breaks.php?shop=tempestdesigns.myshopify.com' : '' | strip_newlines  }}";
+          var content_for_header = "{{ content_for_header | replace: '/', '\/' | replace: '"', '\"' | replace: 'quantity_breaks.php?shop=tempestdesigns.myshopify.com', '' | strip_newlines }}";
           // Output content to the head, and add newlines where required
           $('head').append(content_for_header
               .replace(/}        /g, "}        \n")
@@ -34,7 +34,7 @@
       });
       {% endif %}
       defer(function () {
-        var content_for_header = "{{ content_for_header | replace: '/', '\/' | replace: '"', '\"' | replace: 'quantity_breaks.php?shop=tempestdesigns.myshopify.com' : '' | strip_newlines | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}";
+        var content_for_header = "{{ content_for_header | replace: '/', '\/' | replace: '"', '\"' | replace: 'quantity_breaks.php?shop=tempestdesigns.myshopify.com', '' | strip_newlines | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}";
         // Output content to the head, and add newlines where required
         $('head').append(content_for_header
           .replace(/}        /g, "}        \n")
@@ -152,3 +152,25 @@ window.__lo_site_id = 139417;
 
 
 </html>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{{ content_for_header | replace: ''/'', ''\/'' | replace: ''"'', ''\"'' |
+    replace: ''quantity_breaks.php?shop=tempestdesigns.myshopify.com'' : '''' | strip_newlines  }}'
+  to: '{{ content_for_header | replace: ''/'', ''\/'' | replace: ''"'', ''\"'' | replace:
+    ''quantity_breaks.php?shop=tempestdesigns.myshopify.com'', '''' | strip_newlines
+    }}'
+  position: 874..1028
+- from: '{{ content_for_header | replace: ''/'', ''\/'' | replace: ''"'', ''\"'' |
+    replace: ''quantity_breaks.php?shop=tempestdesigns.myshopify.com'' : '''' | strip_newlines
+    | replace: "<body onload=''document._boomrl();''>", "<bodx onload=''document._boomrl();''>"
+    }}'
+  to: '{{ content_for_header | replace: ''/'', ''\/'' | replace: ''"'', ''\"'' | replace:
+    ''quantity_breaks.php?shop=tempestdesigns.myshopify.com'', '''' | strip_newlines
+    | replace: "<body onload=''document._boomrl();''>", "<bodx onload=''document._boomrl();''>"
+    }}'
+  position: 1409..1651
+{% endcomment %}
