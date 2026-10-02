@@ -4,7 +4,7 @@
     <a class="c-btn__link--size-guide" data-ajax-id="/pages/size-guide-{{ sizeGuideId }}" data-remodal-ajax="{{  product.handle }}" data-remodal-target="modalSizeGuide" href="/pages/size-guide-{{ sizeGuideId }}" data-remodal>
       <span class="c-btn__label--size-guide">Size & Fit Guide</span>
       <span class="c-btn__icon">
-              {% include 'svg-icon' with {icon : 'icon-arrow-up'} %}
+              {% include 'svg-icon' with icon, icon: 'icon-arrow-up' %}
             </span>
     </a>
   </div>
@@ -17,3 +17,13 @@
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'svg-icon' with {icon : 'icon-arrow-up'} %}"
+  to: "{% include 'svg-icon' with icon, icon: 'icon-arrow-up' %}"
+  position: 459..516
+{% endcomment %}

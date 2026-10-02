@@ -67,13 +67,13 @@
               {% for product in collection.products %}
                 <div class="l-product-list__item">
                   <div class="l-product-list__product-thumb">
-                    {% include 'ac-product-thumb-bundle' with {{ modClass : '--bundle' }}%}
+                    {% include 'ac-product-thumb-bundle', modClass: '--bundle' %}
                     {% include 'ac-product-form-bundle'%}
                   </div>
                   <div class="l-product-list__remodal" >
                     <div class="c-remodal remodal" data-remodal-id="modal{{ product.id }}">
                       <button data-remodal-action="close" class="remodal-close c-remodal__btn--close"></button>
-                      {% include 'ac-product-thumb-modal' with {{ modClass : '--modal' }} %}
+                      {% include 'ac-product-thumb-modal', modClass: '--modal' %}
                     </div>
                   </div>
                 </div>
@@ -214,3 +214,16 @@
   ]
   }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'ac-product-thumb-bundle' with {{ modClass : '--bundle' }}%}"
+  to: "{% include 'ac-product-thumb-bundle', modClass: '--bundle' %}"
+  position: 2890..2951
+- from: "{% include 'ac-product-thumb-modal' with {{ modClass : '--modal' }} %}"
+  to: "{% include 'ac-product-thumb-modal', modClass: '--modal' %}"
+  position: 3318..3377
+{% endcomment %}

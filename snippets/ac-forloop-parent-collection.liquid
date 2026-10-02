@@ -29,11 +29,7 @@
         {%  if logoImage != blank %}
         {% if logoImage != blank %}
           <h3 class="c-content-block__logo--collection-list-2">
-            {% include 'responsive-image' with
-              image: logoImage,
-              max_width: 400,
-              max_height: 700
-            %}
+            {% include 'responsive-image' with image, image: logoImage, max_width: 400, max_height: 700 %}
           </h3>
         {% endif %}
         {% endif %}
@@ -67,11 +63,7 @@
       {% endif %}
       {% if parentCollection.metafields.content-block.image2 %}
         <div class="c-content-block__block-image--collection-list-2 c-content-block__block-image--collection-buddies">
-          {% include 'responsive-image' with
-            image: blockImage,
-            max_width: 700,
-            max_height: 700
-          %}
+          {% include 'responsive-image' with image, image: blockImage, max_width: 700, max_height: 700 %}
         </div>
       {% endif %}
 
@@ -83,3 +75,28 @@
 
   </div>
 {% endif %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                  image: logoImage,
+                  max_width: 400,
+                  max_height: 700
+                %}
+  to: "{% include 'responsive-image' with image, image: logoImage, max_width: 400,
+    max_height: 700 %}"
+  position: 1626..1720
+- from: |-
+    {% include 'responsive-image' with
+                image: blockImage,
+                max_width: 700,
+                max_height: 700
+              %}
+  to: "{% include 'responsive-image' with image, image: blockImage, max_width: 700,
+    max_height: 700 %}"
+  position: 2930..3025
+{% endcomment %}

@@ -22,7 +22,7 @@
     <a class="c-btn__link--size-guide-cart" data-ajax-id="/pages/size-guide-{{ sizeGuideId }}" data-remodal-ajax="{{  item.product.handle }}" data-remodal-target="modalSizeGuide{{  item.product.handle }}" href="#modalSizeGuide{{  item.product.handle }}" data-remodal>
       <span class="c-btn__label--size-guide-cart">Size Guide</span>
       <!-- <span class="c-btn__icon">
-              {% include 'svg-icon' with {icon : 'icon-arrow-up'} %}
+              {% include 'svg-icon' with icon, icon: 'icon-arrow-up' %}
             </span> -->
     </a>
   </div>
@@ -53,7 +53,7 @@
       <a class="c-btn__link--size-guide-cart" data-ajax-id='{{ productIdsAtt }}' data-remodal-ajax-bundle="{{  item.product.handle }}" data-remodal-target="modalSizeGuide{{  item.product.handle }}" href="#modalSizeGuide{{  item.product.handle }}" data-remodal>
         <span class="c-btn__label--size-guide-cart">Size Guide</span>
        <!-- <span class="c-btn__icon">
-              {% include 'svg-icon' with {icon : 'icon-arrow-up'} %}
+              {% include 'svg-icon' with icon, icon: 'icon-arrow-up' %}
             </span> -->
       </a>
     </div>
@@ -68,3 +68,16 @@
   </div>
 {% endif %}
 {% endunless %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'svg-icon' with {icon : 'icon-arrow-up'} %}"
+  to: "{% include 'svg-icon' with icon, icon: 'icon-arrow-up' %}"
+  position: 1221..1278
+- from: "{% include 'svg-icon' with {icon : 'icon-arrow-up'} %}"
+  to: "{% include 'svg-icon' with icon, icon: 'icon-arrow-up' %}"
+  position: 2702..2759
+{% endcomment %}

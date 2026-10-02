@@ -55,12 +55,7 @@
 
     {% if section.settings.cb_image != blank %}
       <div class="c-content-block__image is-pos-{{ cb_image_pos_class }}">
-        {% include 'responsive-image' with
-          image: section.settings.cb_image,
-          max_width: 700,
-          max_height: 700
-          wrapper_class : 'c-featured-image__wrapper--logo-icon'
-        %}
+        {% include 'responsive-image' with image, image: section.settings.cb_image, max_width: 700, max_height: 700, wrapper_class: 'c-featured-image__wrapper--logo-icon' %}
       </div>
     {% endif %}
 
@@ -84,12 +79,7 @@
                 <div class="l-icon-list__icon-thumb">
                   <div class="c-icon-thumb">
                     <div class="c-icon-thumb__icon">
-                      {% include 'responsive-image' with
-                        image: icon.settings.cb_icon_image,
-                        max_width: 500,
-                        max_height: 500
-                        wrapper_class : 'c-featured-image__wrapper--logo-icon'
-                      %}
+                      {% include 'responsive-image' with image, image: icon.settings.cb_icon_image, max_width: 500, max_height: 500, wrapper_class: 'c-featured-image__wrapper--logo-icon' %}
                     </div>
                     {% unless icon.settings.cb_icon_hide_title %}
                       <div class="c-icon-thumb__title">
@@ -385,3 +375,32 @@
   ]
   }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+              image: section.settings.cb_image,
+              max_width: 700,
+              max_height: 700
+              wrapper_class : 'c-featured-image__wrapper--logo-icon'
+            %}
+  to: "{% include 'responsive-image' with image, image: section.settings.cb_image,
+    max_width: 700, max_height: 700, wrapper_class: 'c-featured-image__wrapper--logo-icon'
+    %}"
+  position: 2526..2691
+- from: |-
+    {% include 'responsive-image' with
+                            image: icon.settings.cb_icon_image,
+                            max_width: 500,
+                            max_height: 500
+                            wrapper_class : 'c-featured-image__wrapper--logo-icon'
+                          %}
+  to: "{% include 'responsive-image' with image, image: icon.settings.cb_icon_image,
+    max_width: 500, max_height: 500, wrapper_class: 'c-featured-image__wrapper--logo-icon'
+    %}"
+  position: 3844..4011
+{% endcomment %}

@@ -44,11 +44,7 @@
 
 
                 <div class="l-page__hero-image--404">
-                  {% include 'responsive-image' with
-                    image: images['bbd-404-80.jpg'],
-                    max_width: 800,
-                    max_height: 800
-                  %}
+                  {% include 'responsive-image' with image, image: images['bbd-404-80.jpg'], max_width: 800, max_height: 800 %}
                 </div>
             </div>
           </div><!-- .l-main__content-block-wrapper -->
@@ -62,3 +58,19 @@
   </div>
 </div>
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                        image: images['bbd-404-80.jpg'],
+                        max_width: 800,
+                        max_height: 800
+                      %}
+  to: "{% include 'responsive-image' with image, image: images['bbd-404-80.jpg'],
+    max_width: 800, max_height: 800 %}"
+  position: 1847..1956
+{% endcomment %}

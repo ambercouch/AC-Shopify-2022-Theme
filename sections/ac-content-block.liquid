@@ -41,11 +41,7 @@
             {% endif %}
             {% if block.settings.content_image != blank %}
             <div class="c-content-block__image">
-              {% include 'responsive-image' with
-                image: block.settings.content_image,
-                max_width: 800,
-                max_height: 800
-              %}
+              {% include 'responsive-image' with image, image: block.settings.content_image, max_width: 800, max_height: 800 %}
             </div>
             {% else %}
               <!-- content_image false -->
@@ -223,3 +219,19 @@
   }]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                    image: block.settings.content_image,
+                    max_width: 800,
+                    max_height: 800
+                  %}
+  to: "{% include 'responsive-image' with image, image: block.settings.content_image,
+    max_width: 800, max_height: 800 %}"
+  position: 1680..1793
+{% endcomment %}

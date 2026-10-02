@@ -19,13 +19,7 @@
 <div class="c-item-thumb--stockist">
   <div class="c-item-thumb__featured-image">
       <div class="c-featured-image--stockist">
-        {% include 'responsive-image' with
-          image: itemFeatuerImage,
-          max_width: 700,
-          max_height: 700,
-          wrapper_class : 'c-featured-image__wrapper--stockist',
-          image_class : 'c-featured-image__img--stockist'
-        %}
+        {% include 'responsive-image' with image, image: itemFeatuerImage, max_width: 700, max_height: 700, wrapper_class: 'c-featured-image__wrapper--stockist', image_class: 'c-featured-image__img--stockist' %}
       </div>
   </div>
 
@@ -70,3 +64,22 @@
 
 
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+              image: itemFeatuerImage,
+              max_width: 700,
+              max_height: 700,
+              wrapper_class : 'c-featured-image__wrapper--stockist',
+              image_class : 'c-featured-image__img--stockist'
+            %}
+  to: "{% include 'responsive-image' with image, image: itemFeatuerImage, max_width:
+    700, max_height: 700, wrapper_class: 'c-featured-image__wrapper--stockist', image_class:
+    'c-featured-image__img--stockist' %}"
+  position: 604..807
+{% endcomment %}
