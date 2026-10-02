@@ -4,11 +4,7 @@
     <div class="c-item-thumb__content-col--image">
       {% if productSport.product_sport_image != blank %}
         <div class="c-item-thumb__feature-image--product-sport">
-          {% include 'responsive-image' with
-            image: productSport.product_sport_image.value,
-            max_width: 400,
-            max_height: 250
-          %}
+          {% include 'responsive-image' with image, image: productSport.product_sport_image.value, max_width: 400, max_height: 250 %}
         </div>
       {% endif %}
     </div>
@@ -18,8 +14,28 @@
       <div class="c-item-thumb__text--product-sport-prodcuct">
         <p>{{ productSport.product_sport_description.value | newline_to_br }}</p>
       </div>
-      {% include 'ac-product-thumb'  with {{ modClass : '--product-sport-product' }} %}
+      {% include 'ac-product-thumb', modClass: '--product-sport-product' %}
     </div>
   </div>
 
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                image: productSport.product_sport_image.value,
+                max_width: 400,
+                max_height: 250
+              %}
+  to: "{% include 'responsive-image' with image, image: productSport.product_sport_image.value,
+    max_width: 400, max_height: 250 %}"
+  position: 229..352
+- from: "{% include 'ac-product-thumb'  with {{ modClass : '--product-sport-product'
+    }} %}"
+  to: "{% include 'ac-product-thumb', modClass: '--product-sport-product' %}"
+  position: 722..791
+{% endcomment %}

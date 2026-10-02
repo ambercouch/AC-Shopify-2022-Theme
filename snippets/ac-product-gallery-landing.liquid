@@ -9,15 +9,7 @@
     {%- endunless -%}
   {% endcapture %}
   <div class="c-product-gallery__focus-image">
-  {% include 'responsive-image' with
-    image: image,
-    max_width: 700,
-    max_height: 700,
-    image_attributes: "data-product-featured-image",
-    wrapper_class: wrapper_class,
-    image_class : 'c-product-gallery__img--landing-focus'
-    wrapper_attributes: "data-product-image-wrapper",
-  %}
+  {% include 'responsive-image' with image, image: image, max_width: 700, max_height: 700, image_attributes: "data-product-featured-image", wrapper_class: wrapper_class, image_class: 'c-product-gallery__img--landing-focus', wrapper_attributes: "data-product-image-wrapper" %}
   </div>
 
 {% endfor %}
@@ -36,3 +28,25 @@
   {% endif %}
 
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+        image: image,
+        max_width: 700,
+        max_height: 700,
+        image_attributes: "data-product-featured-image",
+        wrapper_class: wrapper_class,
+        image_class : 'c-product-gallery__img--landing-focus'
+        wrapper_attributes: "data-product-image-wrapper",
+      %}
+  to: '{% include ''responsive-image'' with image, image: image, max_width: 700, max_height:
+    700, image_attributes: "data-product-featured-image", wrapper_class: wrapper_class,
+    image_class: ''c-product-gallery__img--landing-focus'', wrapper_attributes: "data-product-image-wrapper"
+    %}'
+  position: 317..590
+{% endcomment %}

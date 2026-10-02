@@ -9,11 +9,7 @@
   {% if product.featured_image != blank %}
     <div class="c-product-thumb__feature-image{{ modClass }}">
     <a class="c-product-thumb__link-image" href="{{ product.url }}">
-      {% include 'responsive-image' with
-        image: product.featured_image,
-        max_width: 700,
-        max_height: 800
-      %}
+      {% include 'responsive-image' with image, image: product.featured_image, max_width: 700, max_height: 800 %}
     </a>
     </div>
   {% endif %}
@@ -61,3 +57,19 @@
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+            image: product.featured_image,
+            max_width: 700,
+            max_height: 800
+          %}
+  to: "{% include 'responsive-image' with image, image: product.featured_image, max_width:
+    700, max_height: 800 %}"
+  position: 475..582
+{% endcomment %}

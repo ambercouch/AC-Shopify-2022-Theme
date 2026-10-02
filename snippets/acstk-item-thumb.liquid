@@ -61,11 +61,7 @@
   <div class="c-item-thumb__featured-image">
     <a href="{{ itemProduct.url }}{{ ac_url_tracking | prepend :'?ac_ref=' }}" class="c-item-thumb__image-link">
       <div class="c-featured-image--collection">
-        {% include 'responsive-image' with
-          image: productFeatuerImage,
-          max_width: 700,
-          max_height: 700
-        %}
+        {% include 'responsive-image' with image, image: productFeatuerImage, max_width: 700, max_height: 700 %}
       </div>
 
     </a>
@@ -120,3 +116,19 @@
 
 
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+              image: productFeatuerImage,
+              max_width: 700,
+              max_height: 700
+            %}
+  to: "{% include 'responsive-image' with image, image: productFeatuerImage, max_width:
+    700, max_height: 700 %}"
+  position: 2334..2438
+{% endcomment %}

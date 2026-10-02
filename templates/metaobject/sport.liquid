@@ -41,22 +41,14 @@
     <header class="l-page__header--sport-template">
       {% if bannerImage %}
         <div class="l-page__feature-image--sport-template l-page__feature-image--static-page">
-          {% include 'responsive-image' with
-            image: bannerImage,
-            max_width: 1440,
-            max_height: 600
-          %}
+          {% include 'responsive-image' with image, image: bannerImage, max_width: 1440, max_height: 600 %}
         </div>
       {% else %}
         <!-- no section.settings.hero_image -->
       {% endif %}
       {% if bannerImageMobile != blank %}
         <div class="l-page__feature-image--sport-template-mobile">
-          {% include 'responsive-image' with
-            image: bannerImageMobile,
-            max_width: 800,
-            max_height: 600
-          %}
+          {% include 'responsive-image' with image, image: bannerImageMobile, max_width: 800, max_height: 600 %}
         </div>
       {% else %}
         <!-- section.settings.hero_image_mobile -->
@@ -85,12 +77,7 @@
         {% if contentImage != blank %}
         <div class="l-page__content-col--image">
           <div class="l-page__image">
-          {% include 'responsive-image' with
-            image: contentImage,
-            max_width: 800,
-            max_height: 800.
-            class: 'c-feature-image--content-template'
-          %}
+          {% include 'responsive-image' with image, image: contentImage, max_width: 800, max_height: 800.0, class: 'c-feature-image--content-template' %}
           </div>
         </div>
         {% else %}
@@ -147,11 +134,7 @@
               <div class="c-item-thumb__content-col--image">
                 {% if sportInfo.sport_info_image != blank %}
                   <div class="c-item-thumb__feature-image--sport-info">
-                    {% include 'responsive-image' with
-                      image: sportInfo.sport_info_image.value,
-                      max_width: 800,
-                      max_height: 800
-                    %}
+                    {% include 'responsive-image' with image, image: sportInfo.sport_info_image.value, max_width: 800, max_height: 800 %}
                   </div>
                 {% endif %}
               </div>
@@ -230,12 +213,7 @@
         {% if sportAdditionalImage != blank %}
           <div class="l-page-after__section-col--image">
             <div class="l-page__image">
-              {% include 'responsive-image' with
-                image: sportAdditionalImage,
-                max_width: 800,
-                max_height: 800.
-                class: 'c-feature-image--content-template'
-              %}
+              {% include 'responsive-image' with image, image: sportAdditionalImage, max_width: 800, max_height: 800.0, class: 'c-feature-image--content-template' %}
 
 
           </div>
@@ -259,7 +237,7 @@
             {% for product in sportFooterProducts.value  %}
               <div class="l-product-list__item--sport-template is-product-id-{{ product.id }} u-bgc-{{ product.metafields.global.background }}">
                 <div class="l-product-list__item-thumb">
-                  {% include 'acstk-item-thumb' with {templateProduct :product, modClass : '--sport-template-product'} %}
+                  {% include 'acstk-item-thumb' with templateProduct, templateProduct: product, modClass: '--sport-template-product' %}
                   <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
                 </div>
               </div>
@@ -346,11 +324,7 @@
               <div class="c-content-block__content--image">
                 {% if block.settings.content_image != blank %}
                   <div class="c-content-block__image">
-                    {% include 'responsive-image' with
-                      image: block.settings.content_image,
-                      max_width: 800,
-                      max_height: 800
-                    %}
+                    {% include 'responsive-image' with image, image: block.settings.content_image, max_width: 800, max_height: 800 %}
                   </div>
                 {% else %}
                   <!-- content_image false -->
@@ -392,3 +366,71 @@
     {% endfor %}
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                image: bannerImage,
+                max_width: 1440,
+                max_height: 600
+              %}
+  to: "{% include 'responsive-image' with image, image: bannerImage, max_width: 1440,
+    max_height: 600 %}"
+  position: 1759..1856
+- from: |-
+    {% include 'responsive-image' with
+                image: bannerImageMobile,
+                max_width: 800,
+                max_height: 600
+              %}
+  to: "{% include 'responsive-image' with image, image: bannerImageMobile, max_width:
+    800, max_height: 600 %}"
+  position: 2074..2176
+- from: |-
+    {% include 'responsive-image' with
+                image: contentImage,
+                max_width: 800,
+                max_height: 800.
+                class: 'c-feature-image--content-template'
+              %}
+  to: "{% include 'responsive-image' with image, image: contentImage, max_width: 800,
+    max_height: 800.0, class: 'c-feature-image--content-template' %}"
+  position: 3138..3281
+- from: |-
+    {% include 'responsive-image' with
+                          image: sportInfo.sport_info_image.value,
+                          max_width: 800,
+                          max_height: 800
+                        %}
+  to: "{% include 'responsive-image' with image, image: sportInfo.sport_info_image.value,
+    max_width: 800, max_height: 800 %}"
+  position: 5241..5358
+- from: |-
+    {% include 'responsive-image' with
+                    image: sportAdditionalImage,
+                    max_width: 800,
+                    max_height: 800.
+                    class: 'c-feature-image--content-template'
+                  %}
+  to: "{% include 'responsive-image' with image, image: sportAdditionalImage, max_width:
+    800, max_height: 800.0, class: 'c-feature-image--content-template' %}"
+  position: 8003..8154
+- from: "{% include 'acstk-item-thumb' with {templateProduct :product, modClass :
+    '--sport-template-product'} %}"
+  to: "{% include 'acstk-item-thumb' with templateProduct, templateProduct: product,
+    modClass: '--sport-template-product' %}"
+  position: 8917..9034
+- from: |-
+    {% include 'responsive-image' with
+                          image: block.settings.content_image,
+                          max_width: 800,
+                          max_height: 800
+                        %}
+  to: "{% include 'responsive-image' with image, image: block.settings.content_image,
+    max_width: 800, max_height: 800 %}"
+  position: 13254..13367
+{% endcomment %}

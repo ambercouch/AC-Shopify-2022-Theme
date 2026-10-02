@@ -25,7 +25,7 @@
   {% assign classHeroText = 'has-hero-text' %}
 {% endif %}
 
-{% if (page.metafields.global.youtube_url_size_guide) %}
+{% if page.metafields.global.youtube_url_size_guide %}
   {% assign videoUrlArray =  page.metafields.global.youtube_url_size_guide | split: '/' %}
   {%  assign youtubeId =  videoUrlArray | last %}
 {% else %}
@@ -58,7 +58,7 @@
       {% endif %}
 
       <div class="l-page__size-guide-icon" >
-        {% include 'svg-icon' {icon : iconId} %}
+        {% include 'svg-icon', icon: iconId %}
       </div>
 
       {% if youtubeId %}
@@ -71,3 +71,16 @@
 
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% if (page.metafields.global.youtube_url_size_guide) %}"
+  to: "{% if page.metafields.global.youtube_url_size_guide %}"
+  position: 1010..1064
+- from: "{% include 'svg-icon' {icon : iconId} %}"
+  to: "{% include 'svg-icon', icon: iconId %}"
+  position: 2100..2138
+{% endcomment %}

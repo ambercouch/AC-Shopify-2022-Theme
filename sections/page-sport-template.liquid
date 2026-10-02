@@ -27,22 +27,14 @@
     <header class="l-page__header--story-template">
       {% if pageImage %}
         <div class="l-page__feature-image--story-template l-page__feature-image--static-page">
-          {% include 'responsive-image' with
-            image: pageImage,
-            max_width: 1440,
-            max_height: 600
-          %}
+          {% include 'responsive-image' with image, image: pageImage, max_width: 1440, max_height: 600 %}
         </div>
       {% else %}
         <!-- no section.settings.hero_image -->
       {% endif %}
       {% if pageImageMobile != blank %}
         <div class="l-page__feature-image--story-template-mobile">
-          {% include 'responsive-image' with
-            image: pageImageMobile,
-            max_width: 800,
-            max_height: 600
-          %}
+          {% include 'responsive-image' with image, image: pageImageMobile, max_width: 800, max_height: 600 %}
         </div>
       {% else %}
         <!-- section.settings.hero_image_mobile -->
@@ -149,11 +141,7 @@
               <div class="c-content-block__content--image">
                 {% if block.settings.content_image != blank %}
                   <div class="c-content-block__image">
-                    {% include 'responsive-image' with
-                      image: block.settings.content_image,
-                      max_width: 800,
-                      max_height: 800
-                    %}
+                    {% include 'responsive-image' with image, image: block.settings.content_image, max_width: 800, max_height: 800 %}
                   </div>
                 {% else %}
                   <!-- content_image false -->
@@ -460,3 +448,37 @@
   ]
   }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                image: pageImage,
+                max_width: 1440,
+                max_height: 600
+              %}
+  to: "{% include 'responsive-image' with image, image: pageImage, max_width: 1440,
+    max_height: 600 %}"
+  position: 1254..1349
+- from: |-
+    {% include 'responsive-image' with
+                image: pageImageMobile,
+                max_width: 800,
+                max_height: 600
+              %}
+  to: "{% include 'responsive-image' with image, image: pageImageMobile, max_width:
+    800, max_height: 600 %}"
+  position: 1565..1665
+- from: |-
+    {% include 'responsive-image' with
+                          image: block.settings.content_image,
+                          max_width: 800,
+                          max_height: 800
+                        %}
+  to: "{% include 'responsive-image' with image, image: block.settings.content_image,
+    max_width: 800, max_height: 800 %}"
+  position: 6518..6631
+{% endcomment %}
