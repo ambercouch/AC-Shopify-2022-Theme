@@ -3,11 +3,7 @@
     <div class="c-collection-thumb__feature-image">
     <a class="c-collection-thumb__link-image--collection-buddies" href="{{ collection.url }}" title="{{ collection.title }}">
       {%- assign image_object = collection.image -%}
-      {% include 'responsive-image' with
-        image: image_object,
-        max_width: 700,
-        max_height: 700
-      %}
+      {% include 'responsive-image' with image, image: image_object, max_width: 700, max_height: 700 %}
        </a>
     </div>
 
@@ -20,3 +16,19 @@
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+            image: image_object,
+            max_width: 700,
+            max_height: 700
+          %}
+  to: "{% include 'responsive-image' with image, image: image_object, max_width: 700,
+    max_height: 700 %}"
+  position: 291..388
+{% endcomment %}
