@@ -18,13 +18,7 @@
 
 
     <div class="l-page__feature-image--article">
-      {% include 'responsive-image' with
-        image: article.image,
-        max_width: 1440,
-        max_height: 600,
-        wrapper_class: 'c-featured-image__wrapper--article',
-        image_class: 'c-featured-image__img--article'
-      %}
+      {% include 'responsive-image' with image, image: article.image, max_width: 1440, max_height: 600, wrapper_class: 'c-featured-image__wrapper--article', image_class: 'c-featured-image__img--article' %}
     </div>
 
 
@@ -63,3 +57,22 @@
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+            image: article.image,
+            max_width: 1440,
+            max_height: 600,
+            wrapper_class: 'c-featured-image__wrapper--article',
+            image_class: 'c-featured-image__img--article'
+          %}
+  to: "{% include 'responsive-image' with image, image: article.image, max_width:
+    1440, max_height: 600, wrapper_class: 'c-featured-image__wrapper--article', image_class:
+    'c-featured-image__img--article' %}"
+  position: 835..1034
+{% endcomment %}

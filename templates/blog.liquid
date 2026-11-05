@@ -27,7 +27,7 @@
           {% for item in blog.articles %}
             <li class="l-thumb-list__item--blog">
               <div class="l-thumb-list__thumb">
-                {% include 'ac-item-thumb-article' with modClass : '--blog' %}
+                {% include 'ac-item-thumb-article' with modClass, modClass: '--blog' %}
               </div>
             </li>
           {% endfor %}
@@ -70,3 +70,13 @@
 
 
 {% endpaginate %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'ac-item-thumb-article' with modClass : '--blog' %}"
+  to: "{% include 'ac-item-thumb-article' with modClass, modClass: '--blog' %}"
+  position: 833..904
+{% endcomment %}

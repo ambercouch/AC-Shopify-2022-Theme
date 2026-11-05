@@ -51,10 +51,20 @@
       {% endif %}
 
       <div class="l-page__size-guide-icon" >
-        {% include 'svg-icon' {icon : iconId} %}
+        {% include 'svg-icon', icon: iconId %}
       </div>
 
     </div>
 
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'svg-icon' {icon : iconId} %}"
+  to: "{% include 'svg-icon', icon: iconId %}"
+  position: 1857..1895
+{% endcomment %}
