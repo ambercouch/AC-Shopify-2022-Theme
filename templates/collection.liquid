@@ -18,11 +18,7 @@
         </header>
                 {% if collection.image.src %}
                   <div class="l-page__feature-image--collection">
-                    {% include 'responsive-image' with
-                      image: collection.image,
-                      max_width: 800,
-                      max_height: 1000
-                    %}
+                    {% include 'responsive-image' with image, image: collection.image, max_width: 800, max_height: 1000 %}
 
 
                     <div class="l-page__icon--scroll-collection" data-js-scroll-down >
@@ -34,11 +30,7 @@
                 {% endif %}
                 <div class="l-page__feature-image--collection-desktop">
 
-                  {% include 'responsive-image' with
-                    image: featureImage,
-                    max_width: 1200,
-                    max_height: 1000
-                  %}
+                  {% include 'responsive-image' with image, image: featureImage, max_width: 1200, max_height: 1000 %}
                   {% comment %}
                     <div class="l-page__icon--scroll-collection" data-js-scroll-down >
                       {% include 'icon-scroll' %}
@@ -87,3 +79,28 @@
     </div>
   </div>
 {% endpaginate %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                          image: collection.image,
+                          max_width: 800,
+                          max_height: 1000
+                        %}
+  to: "{% include 'responsive-image' with image, image: collection.image, max_width:
+    800, max_height: 1000 %}"
+  position: 896..998
+- from: |-
+    {% include 'responsive-image' with
+                        image: featureImage,
+                        max_width: 1200,
+                        max_height: 1000
+                      %}
+  to: "{% include 'responsive-image' with image, image: featureImage, max_width: 1200,
+    max_height: 1000 %}"
+  position: 1387..1486
+{% endcomment %}

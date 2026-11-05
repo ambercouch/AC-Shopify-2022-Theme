@@ -22,7 +22,7 @@
 {% endfor %}
 
 
-{% case cartBbdCount | times: 1 %}
+{% case cartBbdCount %}
 {% when 0 %}
 {% assign discountPercent = 0%}
 {% when 1 %}
@@ -43,7 +43,7 @@
 {% assign discountSavingMoney = discountSaving | money %}
 {% assign autoDiscount = true %}
 
-{% case cartBbdCount | times: 1 %}
+{% case cartBbdCount %}
 {% when 3 %}
 {% assign discCode = '3BIB20' %}
 {% assign discText = 'You have 3 Bibado items in your cart. Enter code <span class="c-discount-code" ><strong>3BIB20</strong></span> on the next page at checkout to get <strong>20%</strong> off your order, saving you ' | append :  discountSavingMoney  %}
@@ -65,3 +65,16 @@
 {% assign discText = 'You have Bibado 6+ items in your cart. Enter code <span class="c-discount-code" > <strong>6BIB30</strong></span> on the next page at checkout to get <strong>30%</strong> off your order, saving you ' | append :  discountSavingMoney %}
 {% endcase %}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% case cartBbdCount | times: 1 %}"
+  to: "{% case cartBbdCount %}"
+  position: 786..809
+- from: "{% case cartBbdCount | times: 1 %}"
+  to: "{% case cartBbdCount %}"
+  position: 1314..1337
+{% endcomment %}

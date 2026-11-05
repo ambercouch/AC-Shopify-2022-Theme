@@ -1,9 +1,5 @@
 {% paginate blog.articles by 5 %}
-  {% if blog.handle == 'breakfast' or
-    blog.handle == 'lunch'% or
-    blog.handle == 'dinner' or
-    blog.handle == 'cook-book'
-    %}
+  {% if blog.handle == 'breakfast' or blog.handle == 'lunch' or blog.handle == 'dinner' or blog.handle == 'cook-book' %}
     {%- assign blog_title = 'Recipes' -%}
     {%- assign blog_menu = true -%}
     {%- else -%}
@@ -50,7 +46,7 @@
           {% for item in blog.articles %}
             <li class="l-thumb-list__item--blog">
               <div class="l-thumb-list__thumb">
-                {% include 'ac-thumbnail' with modClass : '--blog' %}
+                {% include 'ac-thumbnail' with modClass, modClass: '--blog' %}
               </div>
             </li>
           {% endfor %}
@@ -69,3 +65,22 @@
   </div>
 </div>
 {% endpaginate %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% if blog.handle == 'breakfast' or
+        blog.handle == 'lunch'% or
+        blog.handle == 'dinner' or
+        blog.handle == 'cook-book'
+        %}
+  to: "{% if blog.handle == 'breakfast' or blog.handle == 'lunch' or blog.handle ==
+    'dinner' or blog.handle == 'cook-book' %}"
+  position: 36..154
+- from: "{% include 'ac-thumbnail' with modClass : '--blog' %}"
+  to: "{% include 'ac-thumbnail' with modClass, modClass: '--blog' %}"
+  position: 1457..1519
+{% endcomment %}
