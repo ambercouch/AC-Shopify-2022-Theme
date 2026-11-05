@@ -23,7 +23,7 @@
 
 			<div class="l-product-list__item is-product-id-{{ product.id }} u-bgc-{{ product.metafields.global.background }}">
 				<div class="l-product-list__item-thumb">
-					{% include 'acstk-item-thumb' with {templateProduct : related_product}%}
+					{% include 'acstk-item-thumb' with templateProduct, templateProduct: related_product %}
 				</div>
 			</div>
 
@@ -45,3 +45,14 @@
 {%- assign related_handle = nil -%}
 {%- assign related_product = nil -%}
 {%- assign related_count = nil -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'acstk-item-thumb' with {templateProduct : related_product}%}"
+  to: "{% include 'acstk-item-thumb' with templateProduct, templateProduct: related_product
+    %}"
+  position: 1144..1231
+{% endcomment %}

@@ -47,11 +47,11 @@
 
   <div class="js c-product-form__options--weaning-bundle">
 
-    {% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-1-bibado'}%}
-    {% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-2-bibado'}%}
-    {% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-3-easy-mat'}%}
-    {% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-4-easy-mat-mini'}%}
-    {% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-5-piccolo'}%}
+    {% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-1-bibado' %}
+    {% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-2-bibado' %}
+    {% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-3-easy-mat' %}
+    {% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-4-easy-mat-mini' %}
+    {% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-5-piccolo' %}
 
 
   </div>
@@ -117,3 +117,30 @@
 
 {% endform %}
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-1-bibado'}%}"
+  to: "{% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-1-bibado'
+    %}"
+  position: 2059..2162
+- from: "{% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-2-bibado'}%}"
+  to: "{% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-2-bibado'
+    %}"
+  position: 2167..2270
+- from: "{% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-3-easy-mat'}%}"
+  to: "{% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-3-easy-mat'
+    %}"
+  position: 2275..2380
+- from: "{% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-4-easy-mat-mini'}%}"
+  to: "{% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-4-easy-mat-mini'
+    %}"
+  position: 2385..2495
+- from: "{% include 'bundle-option' with {collectionHandle : 'weaning-bundle-option-5-piccolo'}%}"
+  to: "{% include 'bundle-option' with collectionHandle, collectionHandle: 'weaning-bundle-option-5-piccolo'
+    %}"
+  position: 2500..2604
+{% endcomment %}

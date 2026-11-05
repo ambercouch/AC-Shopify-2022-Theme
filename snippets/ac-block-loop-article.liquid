@@ -116,11 +116,7 @@
 
     {% if blockImage %}
       <div class="l-flex-block__item--image">
-        {% include 'responsive-image' with
-          image: images[blockImage],
-          max_width: 700,
-          max_height: 700
-        %}
+        {% include 'responsive-image' with image, image: images[blockImage], max_width: 700, max_height: 700 %}
       </div>
     {% endif %}
 
@@ -153,3 +149,19 @@
   {% endif %}
 
   {% endfor %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+              image: images[blockImage],
+              max_width: 700,
+              max_height: 700
+            %}
+  to: "{% include 'responsive-image' with image, image: images[blockImage], max_width:
+    700, max_height: 700 %}"
+  position: 3755..3858
+{% endcomment %}

@@ -8,12 +8,7 @@
   {% if item[imageType] != blank %}
     <div class="c-item-thumb__featured-image{{ modClass }}">
     <a class="c-item-thumb__link-image" href="{{ item.url | within: collection }}">
-      {% include 'responsive-image' with
-        image: item[imageType],
-        image_class: 'c-featured-image__img--blog'
-        max_width: 800,
-        max_height: 1600
-      %}
+      {% include 'responsive-image' with image, image: item[imageType], image_class: 'c-featured-image__img--blog', max_width: 800, max_height: 1600 %}
     </a>
     </div>
   {% endif %}
@@ -56,3 +51,20 @@
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+            image: item[imageType],
+            image_class: 'c-featured-image__img--blog'
+            max_width: 800,
+            max_height: 1600
+          %}
+  to: "{% include 'responsive-image' with image, image: item[imageType], image_class:
+    'c-featured-image__img--blog', max_width: 800, max_height: 1600 %}"
+  position: 433..578
+{% endcomment %}

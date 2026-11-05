@@ -20,11 +20,7 @@
   <div class="c-item-thumb__featured-image">
     <a href="{{ itemProduct.url | within: collection }}" class="c-item-thumb__image-link">
       <div class="c-featured-image--stockist">
-        {% include 'responsive-image' with
-          image: itemFeatuerImage,
-          max_width: 700,
-          max_height: 700
-        %}
+        {% include 'responsive-image' with image, image: itemFeatuerImage, max_width: 700, max_height: 700 %}
       </div>
     </a>
   </div>
@@ -44,7 +40,8 @@
       <div class="c-item-thumb__footer--stockist">
         {% if googleMap != blank %}
         <a href="{{ googleMap }}" target="_blank">
-          Map<span class="c-btn__icon">
+          Map
+          <span class="c-btn__icon">
             <span class="o-svg-icon c-svg-icon--icon-arrow-up">
               <svg preserveAspectRatio="none" class="o-svg-icon__svg c-svg-icon__svg--icon-arrow-up">
                 <use xlink:href="#icon-arrow-up"></use>
@@ -55,7 +52,8 @@
         {% endif %}
         {% if email != blank %}
         <a href="mailto:{{ email }}" >
-          Contact<span class="c-btn__icon">
+          Contact
+          <span class="c-btn__icon">
             <span class="o-svg-icon c-svg-icon--icon-arrow-up">
               <svg preserveAspectRatio="none" class="o-svg-icon__svg c-svg-icon__svg--icon-arrow-up">
                 <use xlink:href="#icon-arrow-up"></use>
@@ -70,3 +68,19 @@
 
 
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+              image: itemFeatuerImage,
+              max_width: 700,
+              max_height: 700
+            %}
+  to: "{% include 'responsive-image' with image, image: itemFeatuerImage, max_width:
+    700, max_height: 700 %}"
+  position: 694..795
+{% endcomment %}
